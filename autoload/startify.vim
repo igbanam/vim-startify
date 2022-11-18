@@ -105,7 +105,7 @@ function! startify#insane_in_the_membrane(on_vimenter) abort
   call s:register(line('$')-1, 'e', 'special', 'enew', '')
 
   let b:startify.entry_number = 0
-  if filereadable('Session.vim')
+  if g:startify_session_number > 0 && filereadable('Session.vim')
     call append('$', [s:leftpad .'[0]  '. getcwd() . s:sep .'Session.vim', ''])
     call s:register(line('$')-1, '0', 'session',
           \ 'call startify#session_delete_buffers() | source', 'Session.vim')
